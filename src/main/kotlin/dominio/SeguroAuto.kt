@@ -1,7 +1,6 @@
 package dominio
 
-class SeguroAuto(
-                 dniTitular: String,
+class SeguroAuto(dniTitular: String,
                  importe: Double,
                  val descripcion: String,
                  val combustible: String,
@@ -9,12 +8,8 @@ class SeguroAuto(
                  val tipoCobertura: String,
                  val asistenciaCarrera: Boolean,
                  val numPartes: Int) : Seguro(dniTitular,importe){
-         val numPoliza = generarNumPoliza()
 
-
-         companion object{
-             var contadorPoliza = 400000
-         }
+    override var numPoliza: Int = generarNumPoliza(tipoSeguro())
 
 
     override fun serializar(): String {
@@ -26,8 +21,4 @@ class SeguroAuto(
         return obtenerImporte() + (obtenerImporte() * interesFinal)
     }
 
-
-    override fun generarNumPoliza() {
-        ++contadorPoliza
-    }
 }

@@ -2,7 +2,13 @@ package dominio
 
 abstract class Seguro(val dniTitutar: String, private val importe: Double) {
 
-   abstract fun calcularImporteAnioSiguiente(interes: Double): Double
+     abstract val numPoliza: Int
+
+    companion object{
+        var contadorNumPolizaHogar = 100000
+        var contadorNumPolizaAuto = 400000
+    }
+    abstract fun calcularImporteAnioSiguiente(interes: Double): Double
 
 
      fun tipoSeguro(): String{
@@ -15,7 +21,10 @@ abstract class Seguro(val dniTitutar: String, private val importe: Double) {
         return importe
     }
 
-    abstract fun generarNumPoliza()
-
-
+     fun generarNumPoliza(seguro: String): Int{
+         when(seguro){
+             "SeguroHogar" -> return ++contadorNumPolizaHogar
+             else -> return ++contadorNumPolizaAuto
+         }
+     }
 }
