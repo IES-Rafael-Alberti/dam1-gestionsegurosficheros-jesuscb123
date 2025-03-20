@@ -8,9 +8,6 @@ class SeguroHogar(dniTitular: String,
 
     override var numPoliza: Int = generarNumPoliza(tipoSeguro())
 
-    companion object{
-              var contadorPoliza = 100000
-          }
 
     override fun serializar(): String {
         return "$numPoliza;$dniTitutar;${obtenerImporte()};$metrosCuadrados;$valorContenido;$direccion;${tipoSeguro()}"

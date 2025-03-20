@@ -8,8 +8,8 @@ abstract class Seguro(val dniTitutar: String, private val importe: Double) {
         var contadorNumPolizaHogar = 100000
         var contadorNumPolizaAuto = 400000
     }
-    abstract fun calcularImporteAnioSiguiente(interes: Double): Double
 
+    abstract fun calcularImporteAnioSiguiente(interes: Double): Double
 
      fun tipoSeguro(): String{
          return (this::class.simpleName).toString()
