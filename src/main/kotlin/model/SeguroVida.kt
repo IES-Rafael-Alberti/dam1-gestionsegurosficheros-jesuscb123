@@ -1,4 +1,4 @@
-package dominio
+package model
 
 class SeguroVida(dniTitular: String,
                  importe: Double,

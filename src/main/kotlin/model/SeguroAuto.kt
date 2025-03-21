@@ -1,4 +1,4 @@
-package dominio
+package model
 
 class SeguroAuto(dniTitular: String,
                  importe: Double,
