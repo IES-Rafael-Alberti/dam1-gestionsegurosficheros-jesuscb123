@@ -1,17 +1,16 @@
 package model
 
-class SeguroHogar private constructor(dniTitular: String,
-                  importe: Double,
-                  val metrosCuadrados: Int,
-                  val valorContenido: Double,
-                  val direccion: String,
-                  val anioConstruccion: Int) : Seguro(dniTitular, importe) {
+import java.util.function.DoubleBinaryOperator
 
+class SeguroHogar : Seguro {
+    var metrosCuadrados: Int
+    var valorContenido: Double
+    var direccion: String
+    var anioConstruccion: Int
 
-    //constructor(dniTitular: String, importe) Implementar constructor secundario.
 
     companion object{
-      private val numPolizaAuto: Int = 100000
+      private var numPoliza: Int = 100000
         fun crearSeguro(datos: List<String>): SeguroHogar{
             val dniTitular = datos[0]
             val importe = datos[1].toDouble()
@@ -23,6 +22,32 @@ class SeguroHogar private constructor(dniTitular: String,
         }
     }
 
+    constructor(dniTitular: String, //constructor primario que suma numPoliza
+                importe: Double,
+                metrosCuadrados: Int,
+                valorContenido: Double,
+                direccion: String,
+                anioConstruccion: Int) : super(numPoliza++, dniTitular, importe){
+        this.metrosCuadrados = metrosCuadrados
+        this.valorContenido = valorContenido
+        this.direccion = direccion
+        this.anioConstruccion = anioConstruccion
+    }
+
+    constructor(numPoliza: Int, // constructor secundario
+                dniTitular: String,
+                importe: Double,
+                metrosCuadrados: Int,
+                valorContenido: Double,
+                direccion: String,
+                anioConstruccion: Int) : super(numPoliza, dniTitular, importe){
+        this.metrosCuadrados = metrosCuadrados
+        this.valorContenido = valorContenido
+        this.direccion = direccion
+        this.anioConstruccion = anioConstruccion
+    }
+
+
     override fun serializar(): String {
         return "$;${obtenerDNI()};${obtenerImporte()};$metrosCuadrados;$valorContenido;$direccion;$anioConstruccion;${tipoSeguro()}"
     }
@@ -31,4 +56,7 @@ class SeguroHogar private constructor(dniTitular: String,
         return obtenerImporte() + (obtenerImporte() * interes) // implementar el método de la guía.
     }
 
+    override fun toString(): String {
+        return "Seguro Hogar(numPoliza = $numPoliza, dniTitular=${obtenerDNI()}, importe=$importe, metrosCuadrados=$metrosCuadrados, valorContenido=$valorContenido, direccion=$direccion, anioContrusccion=$anioConstruccion, tipoSeguro=${tipoSeguro()})"
+    }
 }
