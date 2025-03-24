@@ -10,7 +10,7 @@ class SeguroHogar : Seguro {
 
 
     companion object{
-      private var numPoliza: Int = 100000
+      private var numPolizaAuto: Int = 100000
         fun crearSeguro(datos: List<String>): SeguroHogar{
             val dniTitular = datos[0]
             val importe = datos[1].toDouble()
@@ -27,7 +27,7 @@ class SeguroHogar : Seguro {
                 metrosCuadrados: Int,
                 valorContenido: Double,
                 direccion: String,
-                anioConstruccion: Int) : super(numPoliza++, dniTitular, importe){
+                anioConstruccion: Int) : super(numPolizaAuto++, dniTitular, importe){
         this.metrosCuadrados = metrosCuadrados
         this.valorContenido = valorContenido
         this.direccion = direccion
@@ -57,6 +57,6 @@ class SeguroHogar : Seguro {
     }
 
     override fun toString(): String {
-        return "Seguro Hogar(numPoliza = $numPoliza, dniTitular=${obtenerDNI()}, importe=$importe, metrosCuadrados=$metrosCuadrados, valorContenido=$valorContenido, direccion=$direccion, anioContrusccion=$anioConstruccion, tipoSeguro=${tipoSeguro()})"
+        return "Seguro Hogar(numPoliza = $numPolizaAuto, dniTitular=${obtenerDNI()}, importe=$importe, metrosCuadrados=$metrosCuadrados, valorContenido=$valorContenido, direccion=$direccion, anioContrusccion=$anioConstruccion, tipoSeguro=${tipoSeguro()})"
     }
 }
