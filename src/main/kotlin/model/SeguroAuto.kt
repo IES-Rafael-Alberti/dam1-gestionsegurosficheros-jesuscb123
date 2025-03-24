@@ -1,16 +1,17 @@
 package model
 
 class SeguroAuto : Seguro{
-    var descripcion: String
-    var combustible: String
-    var tipoAuto: TipoAuto
-    var cobertura: Cobertura
-    var asistenciaCarretera: Boolean
-    var numPartes: Int
+    private val descripcion: String
+    private val combustible: String
+    private val tipoAuto: TipoAuto
+    private val cobertura: Cobertura
+    private val asistenciaCarretera: Boolean
+    private val numPartes: Int
 
     companion object{
         var numPolizaAuto = 400000
-        fun crearSeguro(datos: List<String>): Seguro{
+        const val PORCENTAJE_INCREMENTO_PARTES = 2
+        fun crearSeguro(datos: List<String>): SeguroAuto{
             val dniTitular = datos[0]
             val importe = datos[1].toDouble()
             val descripcion = datos[2]
@@ -57,8 +58,8 @@ class SeguroAuto : Seguro{
                 }
 
 
-    override fun serializar(separador: ): String {
-        return "$numPolizaAuto;${obtenerDNI()};${obtenerImporte()};$descripcion;$combustible;$tipoAuto;$cobertura;$asistenciaCarretera;$numPartes;${tipoSeguro()}"
+    override fun serializar(separador: String): String {
+        return "$numPolizaAuto$separador${obtenerDNI()}$separador${obtenerImporte()}$separador$descripcion  $separador$combustible$separador$tipoAuto$separador$cobertura$separador$asistenciaCarretera$separador$numPartes$separador${tipoSeguro()}"
     }
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
@@ -66,4 +67,7 @@ class SeguroAuto : Seguro{
         return obtenerImporte() + (obtenerImporte() * interesFinal)
     }
 
+    override fun toString(): String {
+        return "SeguroAuto(numPoliza=$numPolizaAuto, dniTitular=${obtenerDNI()}, importe=${obtenerImporte()}, descripción=$descripcion, combustible=$combustible, tipoAuto=$tipoAuto, cobertura=$cobertura, asistenciaCarretera=$asistenciaCarretera, numPartes=$numPartes, tipoSeguro=${tipoSeguro()})"
+    }
 }

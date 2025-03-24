@@ -3,14 +3,16 @@ package model
 import java.util.function.DoubleBinaryOperator
 
 class SeguroHogar : Seguro {
-    var metrosCuadrados: Int
-    var valorContenido: Double
-    var direccion: String
-    var anioConstruccion: Int
+    private val metrosCuadrados: Int
+    private val valorContenido: Double
+    private val direccion: String
+    private val anioConstruccion: Int
 
 
     companion object{
-      private var numPolizaAuto: Int = 100000
+     private var numPolizaHogar: Int = 100000
+        const val PORCENTAJE_INCREMENTO_ANIOS = 0.02
+        const val CICLO_ANIOS_INCREMENTO = 5
         fun crearSeguro(datos: List<String>): SeguroHogar{
             val dniTitular = datos[0]
             val importe = datos[1].toDouble()
@@ -27,7 +29,7 @@ class SeguroHogar : Seguro {
                 metrosCuadrados: Int,
                 valorContenido: Double,
                 direccion: String,
-                anioConstruccion: Int) : super(numPolizaAuto++, dniTitular, importe){
+                anioConstruccion: Int) : super(numPolizaHogar++, dniTitular, importe){
         this.metrosCuadrados = metrosCuadrados
         this.valorContenido = valorContenido
         this.direccion = direccion
@@ -57,6 +59,6 @@ class SeguroHogar : Seguro {
     }
 
     override fun toString(): String {
-        return "Seguro Hogar(numPoliza = $numPolizaAuto, dniTitular=${obtenerDNI()}, importe=$importe, metrosCuadrados=$metrosCuadrados, valorContenido=$valorContenido, direccion=$direccion, anioContrusccion=$anioConstruccion, tipoSeguro=${tipoSeguro()})"
+        return "Seguro Hogar(numPoliza = $numPolizaHogar, dniTitular=${obtenerDNI()}, importe=$importe, metrosCuadrados=$metrosCuadrados, valorContenido=$valorContenido, direccion=$direccion, anioContrusccion=$anioConstruccion, tipoSeguro=${tipoSeguro()})"
     }
 }
