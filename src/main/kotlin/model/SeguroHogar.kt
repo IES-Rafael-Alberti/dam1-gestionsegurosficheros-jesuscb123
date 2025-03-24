@@ -59,6 +59,6 @@ class SeguroHogar : Seguro {
     }
 
     override fun toString(): String {
-        return "Seguro Hogar(numPoliza = $numPolizaHogar, dniTitular=${obtenerDNI()}, importe=$importe, metrosCuadrados=$metrosCuadrados, valorContenido=$valorContenido, direccion=$direccion, anioContrusccion=$anioConstruccion, tipoSeguro=${tipoSeguro()})"
+        return "Seguro Hogar(numPoliza = $numPolizaHogar, dniTitular=${obtenerDNI()}, importe=$importe, metrosCuadrados=$metrosCuadrados, valorContenido=$valorContenido, direccion=$direccion, anioContrusccion=$anioConstruccion)"
     }
 }
