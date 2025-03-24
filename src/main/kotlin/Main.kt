@@ -1,4 +1,5 @@
-fun main(){
+import model.SeguroHogar
 
+fun main(){
 
 }
