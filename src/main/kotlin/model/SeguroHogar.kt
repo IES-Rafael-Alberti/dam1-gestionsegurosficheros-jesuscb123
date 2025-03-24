@@ -48,8 +48,8 @@ class SeguroHogar : Seguro {
     }
 
 
-    override fun serializar(): String {
-        return "$;${obtenerDNI()};${obtenerImporte()};$metrosCuadrados;$valorContenido;$direccion;$anioConstruccion;${tipoSeguro()}"
+    override fun serializar(separador: String): String {
+        return "$;${obtenerDNI()}$separador${obtenerImporte()}$separador$metrosCuadrados$separador $valorContenido;$direccion$separador$anioConstruccion$separador${tipoSeguro()}"
     }
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {

@@ -20,8 +20,13 @@ abstract class Seguro(private val numPoliza: Int, private val dniTitutar: String
         return numPoliza
     }
 
-    override fun serializar(): String{
-        return "$numPoliza;$dniTitutar;$importe"
+    override fun equals(other: Any?): Boolean {
+        if (this == other) return true
+        if (other is Seguro) return false
+    }
+
+    override fun serializar(separador: String): String{
+        return "$numPoliza$separador$dniTitutar$separador$importe"
     }
 
     protected fun obtenerImporte(): Double{

@@ -13,7 +13,7 @@ class SeguroAuto(dniTitular: String,
 
 
     override fun serializar(): String {
-        return "$numPoliza;$dniTitutar;${obtenerImporte()};$descripcion;$combustible;$tipoAuto;$tipoCobertura;$asistenciaCarrera;$numPartes;${tipoSeguro()}"
+        return "$numPoliza;${obtenerDNI()};${obtenerImporte()};$descripcion;$combustible;$tipoAuto;$tipoCobertura;$asistenciaCarrera;$numPartes;${tipoSeguro()}"
     }
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
