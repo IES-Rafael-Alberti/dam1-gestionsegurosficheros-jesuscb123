@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c17d3e0d-e0ed-4686-be29-90a9dd576873" name="Changes" comment="todo eliminado para crear proyecto nuevo.">
+    <list default="true" id="c17d3e0d-e0ed-4686-be29-90a9dd576873" name="Changes" comment="proyecto con gradle.">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/utils/Fichero.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/utils/IUtilFicheros.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/utils/IUtilSeguridad.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/utils/Seguridad.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/RepoUsuariosMem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/data/RepoUsuariosMem.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +24,14 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,7 +69,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.updates",
+    "settings.editor.selected.configurable": "preferences.language.Kotlin",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -76,11 +92,28 @@
       <workItem from="1731411987524" duration="423000" />
       <workItem from="1742929701102" duration="54000" />
       <workItem from="1742929878985" duration="74000" />
-      <workItem from="1742929966512" duration="366000" />
+      <workItem from="1742929966512" duration="1874000" />
     </task>
+    <task id="LOCAL-00001" summary="proyecto con gradle.">
+      <option name="closed" value="true" />
+      <created>1742930442563</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742930442563</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="proyecto con gradle." />
+    <option name="LAST_COMMIT_MESSAGE" value="proyecto con gradle." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

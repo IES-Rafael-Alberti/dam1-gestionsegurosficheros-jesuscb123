@@ -9,9 +9,10 @@ open class RepoUsuariosMem : IRepoUsuarios {
 
     override fun agregar(usuario: Usuario): Boolean {
         val usuarioExistente = buscar(usuario.nombre)
-        if (usuarioExistente == null){
+        if (usuarioExistente == null) {
             listaUsuarios.add(usuario)
-        }else{
+            return true
+        } else {
             return false
         }
     }
