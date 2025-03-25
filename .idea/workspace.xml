@@ -4,45 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef6207f-3209-47e1-828a-ec315c6a34ca" name="Changes" comment="ReposeguroMem, repoUsuariosMem implementados,">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/.keep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dam1-gestionsegurosficheros-jesuscb123.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/org/example/App.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/kotlin/org/example/AppTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/ICargarSegurosIniciales.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/ICargarUsuariosIniciales.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/IRepoSeguros.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/IRepoUsuarios.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/RepoSegurosMem.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/RepoUsuariosFich.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/RepoUsuariosMem.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Cobertura.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/IExportable.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/NivelRiesgo.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Perfil.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Seguro.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/SeguroAuto.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/SeguroHogar.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/SeguroVida.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/TipoAuto.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Usuario.kt" beforeDir="false" />
+    <list default="true" id="c17d3e0d-e0ed-4686-be29-90a9dd576873" name="Changes" comment="todo eliminado para crear proyecto nuevo.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,32 +16,6 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
-  </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="dam1-gestionsegurosficheros-jesuscb123" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Kotlin Enum" />
-        <option value="Kotlin Interface" />
-        <option value="Kotlin Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -96,28 +33,23 @@
   }
 }</component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 5
+  &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="2uXDTJXS2aerkWa0mMDYxcjIIWh" />
+  <component name="ProjectId" id="2uozQL6FSYpJsBz8Onju07c7aAI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Gradle.Build dam1-gestionsegurosficheros-jesuscb123.executor": "Run",
-    "Kotlin.MainKt.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/jesus/Documents/reposgit2/ejercicios-tercer-trimestre/dam1-gestionsegurosficheros-jesuscb123",
     "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/jesus/Documents/reposgit2/ejercicios-tercer-trimestre/SEGUROS/src/main/kotlin/Main.kt",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -125,11 +57,6 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jesus\Documents\reposgit2\ejercicios-tercer-trimestre\dam1-gestionsegurosficheros-jesuscb123" />
-    </key>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -141,156 +68,19 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3ef6207f-3209-47e1-828a-ec315c6a34ca" name="Changes" comment="" />
+      <changelist id="c17d3e0d-e0ed-4686-be29-90a9dd576873" name="Changes" comment="" />
       <created>1731411982522</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731411982522</updated>
       <workItem from="1731411987524" duration="423000" />
-      <workItem from="1742386036549" duration="106000" />
-      <workItem from="1742464880550" duration="7694000" />
-      <workItem from="1742503285784" duration="19000" />
-      <workItem from="1742550174016" duration="6349000" />
-      <workItem from="1742573922723" duration="1784000" />
-      <workItem from="1742740009497" duration="513000" />
-      <workItem from="1742747288850" duration="3133000" />
-      <workItem from="1742835817114" duration="2050000" />
-      <workItem from="1742838375158" duration="5214000" />
-      <workItem from="1742843835906" duration="43000" />
-      <workItem from="1742844025865" duration="79000" />
-      <workItem from="1742899826052" duration="5075000" />
-      <workItem from="1742917416928" duration="310000" />
-      <workItem from="1742925113346" duration="3678000" />
+      <workItem from="1742929701102" duration="54000" />
+      <workItem from="1742929878985" duration="74000" />
+      <workItem from="1742929966512" duration="366000" />
     </task>
-    <task id="LOCAL-00001" summary="Creando clases.">
-      <option name="closed" value="true" />
-      <created>1742467913886</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1742467913886</updated>
-    </task>
-    <task id="LOCAL-00002" summary="He modificado el numPoliza para se genere solo.">
-      <option name="closed" value="true" />
-      <created>1742470340912</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1742470340912</updated>
-    </task>
-    <task id="LOCAL-00003" summary="He conseguido simplificar el generar Num poliza para no tener que repetirlo en cada clase.">
-      <option name="closed" value="true" />
-      <created>1742472242457</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1742472242458</updated>
-    </task>
-    <task id="LOCAL-00004" summary="He conseguido simplificar el generar Num poliza para no tener que repetirlo en cada clase.">
-      <option name="closed" value="true" />
-      <created>1742472573066</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1742472573066</updated>
-    </task>
-    <task id="LOCAL-00005" summary="He conseguido simplificar el generar Num poliza para no tener que repetirlo en cada clase.">
-      <option name="closed" value="true" />
-      <created>1742472603736</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1742472603736</updated>
-    </task>
-    <task id="LOCAL-00006" summary="enumclass añadidas e interfaz IExportable creada e implementada en seguro.">
-      <option name="closed" value="true" />
-      <created>1742556177734</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1742556177734</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Creada clase usuario, clase seguro e implementado en seguro Hogar los dos constructores.">
-      <option name="closed" value="true" />
-      <created>1742750139771</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1742750139771</updated>
-    </task>
-    <task id="LOCAL-00008" summary="proyecto antes de gradle">
-      <option name="closed" value="true" />
-      <created>1742837184698</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1742837184698</updated>
-    </task>
-    <task id="LOCAL-00009" summary="proyecto con gradle">
-      <option name="closed" value="true" />
-      <created>1742840633095</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1742840633095</updated>
-    </task>
-    <task id="LOCAL-00010" summary="todas las clases creadas. Falta implementar en cada clase el método calcularImporte">
-      <option name="closed" value="true" />
-      <created>1742842704875</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1742842704875</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Interfaces data creadas">
-      <option name="closed" value="true" />
-      <created>1742843430400</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1742843430400</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Interfaces data creadas">
-      <option name="closed" value="true" />
-      <created>1742844063779</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1742844063779</updated>
-    </task>
-    <task id="LOCAL-00013" summary="ReposeguroMem, repoUsuariosMem implementados,">
-      <option name="closed" value="true" />
-      <created>1742904320662</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1742904320662</updated>
-    </task>
-    <task id="LOCAL-00014" summary="ReposeguroMem, repoUsuariosMem implementados,">
-      <option name="closed" value="true" />
-      <created>1742904365741</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1742904365741</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creando clases." />
-    <MESSAGE value="He modificado el numPoliza para se genere solo." />
-    <MESSAGE value="He conseguido simplificar el generar Num poliza para no tener que repetirlo en cada clase." />
-    <MESSAGE value="enumclass añadidas e interfaz IExportable creada e implementada en seguro." />
-    <MESSAGE value="Creada clase usuario, clase seguro e implementado en seguro Hogar los dos constructores." />
-    <MESSAGE value="proyecto antes de gradle" />
-    <MESSAGE value="proyecto con gradle" />
-    <MESSAGE value="todas las clases creadas. Falta implementar en cada clase el método calcularImporte" />
-    <MESSAGE value="Interfaces data creadas" />
-    <MESSAGE value="ReposeguroMem, repoUsuariosMem implementados," />
-    <option name="LAST_COMMIT_MESSAGE" value="ReposeguroMem, repoUsuariosMem implementados," />
   </component>
 </project>
