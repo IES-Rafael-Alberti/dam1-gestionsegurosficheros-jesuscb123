@@ -30,6 +30,7 @@ class RepoSegurosMem : IRepoSeguros {
         if (seguroExistente != null){
             eliminar(seguroExistente)
         }
+        return false
     }
 
     override fun obtenerTodos(): List<Seguro> {
