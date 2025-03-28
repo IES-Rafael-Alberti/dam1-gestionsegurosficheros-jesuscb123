@@ -14,13 +14,17 @@ class GestorUsuarios(val repoUsuarios: IRepoUsuarios, val seguridad: IUtilSeguri
     override fun agregarUsuario(nombre: String, clave: String, perfil: Perfil): Boolean {
         if (buscarUsuario(nombre) == null){
             val claveEncriptada = seguridad.encriptarClave(clave)
-          return repoUsuarios.agregar(Usuario(nombre,claveEncriptada,perfil))
+            if (repoUsuarios.agregar(Usuario(nombre,claveEncriptada,perfil))) return true else return false
         }
         return false
     }
 
     override fun eliminarUsuario(nombre: String): Boolean {
-        if (buscarUsuario(nombre) != null) return repoUsuarios.eliminar(nombre) else return false
+        if (buscarUsuario(nombre) != null){
+            if (repoUsuarios.eliminar(nombre)) return true else return false
+        }else{
+            return false
+        }
     }
 
     override fun cambiarClave(usuario: Usuario, nuevaClave: String): Boolean {

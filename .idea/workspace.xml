@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c17d3e0d-e0ed-4686-be29-90a9dd576873" name="Changes" comment="Cambios en reposegurosMem e implementado metodos de clase fichero.">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/service/GestorUsuarios.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/service/IServSeguros.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/service/IServUsuarios.kt" afterDir="false" />
+    <list default="true" id="c17d3e0d-e0ed-4686-be29-90a9dd576873" name="Changes" comment="Gestor Usuarios finalizado.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/Seguridad.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/Seguridad.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/service/GestorUsuarios.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/service/GestorUsuarios.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +88,7 @@
       <workItem from="1742929966512" duration="1955000" />
       <workItem from="1742933650616" duration="52000" />
       <workItem from="1743017013641" duration="2928000" />
-      <workItem from="1743156385998" duration="1955000" />
+      <workItem from="1743156385998" duration="2874000" />
     </task>
     <task id="LOCAL-00001" summary="proyecto con gradle.">
       <option name="closed" value="true" />
@@ -117,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743020117217</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Gestor Usuarios finalizado.">
+      <option name="closed" value="true" />
+      <created>1743158710126</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743158710126</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +132,8 @@
     <MESSAGE value="proyecto con gradle." />
     <MESSAGE value="Creada las clases de utils" />
     <MESSAGE value="Cambios en reposegurosMem e implementado metodos de clase fichero." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios en reposegurosMem e implementado metodos de clase fichero." />
+    <MESSAGE value="Gestor Usuarios finalizado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestor Usuarios finalizado." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
