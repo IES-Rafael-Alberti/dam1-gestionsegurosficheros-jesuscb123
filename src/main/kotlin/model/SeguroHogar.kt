@@ -59,8 +59,7 @@ class SeguroHogar : Seguro {
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
         val anioActual = LocalDate.now().year
         val antiguedad = (anioActual - anioConstruccion).toDouble()
-
-        val interesAdicional = (antiguedad / 5).toInt() * 0.0002
+        val interesAdicional = (antiguedad / CICLO_ANIOS_INCREMENTO).toInt() * PORCENTAJE_INCREMENTO_ANIOS
         val interesTotal = interes + interesAdicional
 
         return valorContenido * (1 + interesTotal)
