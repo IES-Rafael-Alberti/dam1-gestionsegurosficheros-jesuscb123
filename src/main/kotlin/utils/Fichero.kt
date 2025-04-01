@@ -18,16 +18,12 @@ class Fichero(val consola: IEntradaSalida) : IUtilFicheros {
 
     override fun agregarLinea(ruta: String, linea: String): Boolean {
         try {
-                File(ruta).appendText(linea)
-                return true
-                if ()
-                throw IllegalArgumentException("ERROR - No se puede agregar la línea")
-
-        }catch (e: IllegalArgumentException){
-            consola.mostrarError(e.toString())
+            File(ruta).appendText(linea)
+            return true
+        }catch (e: Exception){
+            consola.mostrarError("ERROR - No se puede agregar la línea")
         }
-
-
+        return false
     }
 
     override fun <T : IExportable> escribirArchivo(ruta: String, elementos: List<T>): Boolean {
