@@ -1,25 +1,33 @@
 package prog2425.dam1.seguros.utils
 
+import prog2425.dam1.seguros.UI.IEntradaSalida
 import prog2425.dam1.seguros.model.IExportable
 import prog2425.dam1.seguros.model.Seguro
 import java.io.File
+import java.lang.IllegalArgumentException
 
-class Fichero : IUtilFicheros {
+class Fichero(val consola: IEntradaSalida) : IUtilFicheros {
     override fun leerArchivo(ruta: String): List<String> {
+        val
         return File(ruta).readLines()
     }
 
     override fun leerSeguros(ruta: String, mapaSeguros: Map<String, (List<String>) -> Seguro>): List<Seguro> {
-        TODO("Not yet implemented")
+
     }
 
     override fun agregarLinea(ruta: String, linea: String): Boolean {
-        if (linea != null) {
-            File(ruta).appendText(linea)
-            return true
-        }else{
-            return false
+        try {
+                File(ruta).appendText(linea)
+                return true
+                if ()
+                throw IllegalArgumentException("ERROR - No se puede agregar la línea")
+
+        }catch (e: IllegalArgumentException){
+            consola.mostrarError(e.toString())
         }
+
+
     }
 
     override fun <T : IExportable> escribirArchivo(ruta: String, elementos: List<T>): Boolean {

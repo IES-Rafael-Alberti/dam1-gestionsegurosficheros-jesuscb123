@@ -46,12 +46,7 @@ open class RepoUsuariosMem : IRepoUsuarios {
     }
 
     override fun cambiarClave(usuario: Usuario, nuevaClave: String): Boolean {
-        val usuarioExistente = buscar(usuario.nombre)
-        if (usuarioExistente != null){
-            usuario.cambiarClave(nuevaClave)
-            return true
-        }else{
-            return false
+        usuario.cambiarClave(nuevaClave)
+        return true
         }
-    }
 }

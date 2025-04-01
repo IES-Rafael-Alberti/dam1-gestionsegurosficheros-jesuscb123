@@ -14,11 +14,9 @@ abstract class Seguro(val numPoliza: Int, private val dniTitutar: String, protec
     }
 
     override fun equals(other: Any?): Boolean {
-        if (this == other) return true
-        if (other is Seguro){
-            return other.numPoliza == numPoliza
-        }
-        return false
+        if (this === other) return true
+        if (other !is Seguro) return true
+        return numPoliza == other.numPoliza
     }
 
     override fun serializar(separador: String): String{

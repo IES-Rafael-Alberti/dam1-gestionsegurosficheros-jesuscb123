@@ -12,14 +12,15 @@ class SeguroAuto : Seguro{
         var numPolizaAuto = 400000
         const val PORCENTAJE_INCREMENTO_PARTES = 2
         fun crearSeguro(datos: List<String>): SeguroAuto{
-            val dniTitular = datos[0]
-            val importe = datos[1].toDouble()
-            val descripcion = datos[2]
-            val combustible = datos[3]
-            val tipoAuto = TipoAuto.getTipoAuto(datos[4])
-            val cobertura = Cobertura.getCobertura(datos[5])
-            val asistenciaCarretera = datos[6].toBoolean()
-            val numPartes = datos[7].toInt()
+            val numPoliza = datos[0].toInt()
+            val dniTitular = datos[1]
+            val importe = datos[2].toDouble()
+            val descripcion = datos[3]
+            val combustible = datos[4]
+            val tipoAuto = TipoAuto.getTipoAuto(datos[5])
+            val cobertura = Cobertura.getCobertura(datos[6])
+            val asistenciaCarretera = datos[7].toBoolean()
+            val numPartes = datos[8].toInt()
             return SeguroAuto(dniTitular,importe,descripcion,combustible,tipoAuto,cobertura,asistenciaCarretera,numPartes)
         }
 
@@ -31,7 +32,7 @@ class SeguroAuto : Seguro{
                 tipoAuto: TipoAuto,
                 cobertura: Cobertura,
                 asistenciaCarretera: Boolean,
-                numPartes: Int) : super(numPolizaAuto++, dniTitular, importe){
+                numPartes: Int) : super(++numPolizaAuto, dniTitular, importe){
                     this.descripcion = descripcion
                     this.combustible = combustible
                     this.tipoAuto = tipoAuto
@@ -40,7 +41,7 @@ class SeguroAuto : Seguro{
                     this.numPartes = numPartes
                 }
 
-    constructor(numPoliza: Int,
+   private constructor(numPoliza: Int,
                 dniTitular: String,
                 importe: Double,
                 descripcion: String,
@@ -63,11 +64,11 @@ class SeguroAuto : Seguro{
     }
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
-        val interesFinal = interes + (numPartes * 2)
+        val interesFinal = interes + (numPartes * PORCENTAJE_INCREMENTO_PARTES)
         return obtenerImporte() + (obtenerImporte() * interesFinal)
     }
 
     override fun toString(): String {
-        return "SeguroAuto(numPoliza=$numPolizaAuto, dniTitular=${obtenerDNI()}, importe=${obtenerImporte()}, descripción=$descripcion, combustible=$combustible, tipoAuto=$tipoAuto, cobertura=$cobertura, asistenciaCarretera=$asistenciaCarretera, numPartes=$numPartes)"
+        return "${tipoSeguro()}(numPoliza=$numPolizaAuto, dniTitular=${obtenerDNI()}, importe=${obtenerImporte()}, descripción=$descripcion, combustible=$combustible, tipoAuto=$tipoAuto, cobertura=$cobertura, asistenciaCarretera=$asistenciaCarretera, numPartes=$numPartes)"
     }
 }

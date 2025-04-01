@@ -8,7 +8,7 @@ class Consola : IEntradaSalida {
     }
 
     override fun mostrarError(msj: String, pausa: Boolean) {
-        if (msj.contains("ERROR -")) println() else println(msj)
+        if (msj.startsWith("ERROR -")) println() else println(msj)
         if (pausa) pausar()
     }
 
@@ -22,8 +22,8 @@ class Consola : IEntradaSalida {
     }
 
     override fun pedirInfo(msj: String, error: String, debeCumplir: (String) -> Boolean): String {
-        println(msj)
-        val respuestaUsuario = readln().trim()
+
+        val respuestaUsuario = pedirInfo(msj)
         require(debeCumplir(respuestaUsuario)) {mostrarError("error")}
         return respuestaUsuario
     }
@@ -34,11 +34,11 @@ class Consola : IEntradaSalida {
         errorConv: String,
         debeCumplir: (Double) -> Boolean
     ): Double {
-        TODO("Not yet implemented")
+
     }
 
     override fun pedirEntero(prompt: String, error: String, errorConv: String, debeCumplir: (Int) -> Boolean): Int {
-        TODO("Not yet implemented")
+
     }
 
     override fun pedirInfoOculta(prompt: String): String {

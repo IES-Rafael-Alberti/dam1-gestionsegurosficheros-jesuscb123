@@ -55,7 +55,7 @@ class GestorSeguros(val repoSeguros: IRepoSeguros) : IServSeguros {
     }
 
     override fun eliminarSeguro(numPoliza: Int): Boolean {
-        if (repoSeguros.eliminar(numPoliza)) return true else return false
+       return if (repoSeguros.eliminar(numPoliza)) true else false
     }
 
     override fun consultarTodos(): List<Seguro> {

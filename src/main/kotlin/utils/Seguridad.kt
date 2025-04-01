@@ -1,7 +1,7 @@
 package prog2425.dam1.seguros.utils
 import at.favre.lib.crypto.bcrypt.BCrypt
 
-object Seguridad : IUtilSeguridad {
+class Seguridad : IUtilSeguridad {
     override fun encriptarClave(clave: String, nivelSeguridad: Int): String {
         return BCrypt.withDefaults().hashToString(nivelSeguridad, clave.toCharArray())
     }

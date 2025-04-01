@@ -3,7 +3,7 @@ package prog2425.dam1.seguros.data
 
 import prog2425.dam1.seguros.model.Seguro
 
-class RepoSegurosMem : IRepoSeguros {
+open class RepoSegurosMem : IRepoSeguros {
     val listaSeguros = mutableListOf<Seguro>()
 
     override fun agregar(seguro: Seguro): Boolean {
