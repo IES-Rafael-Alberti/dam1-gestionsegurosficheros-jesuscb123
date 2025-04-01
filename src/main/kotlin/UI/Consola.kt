@@ -3,19 +3,29 @@ package prog2425.dam1.seguros.UI
 class Consola : IEntradaSalida {
     override fun mostrar(msj: String, salto: Boolean, pausa: Boolean) {
         println(msj)
-        if (salto)
+        if (salto) println()
+        if (pausa) pausar()
     }
 
     override fun mostrarError(msj: String, pausa: Boolean) {
-        TODO("Not yet implemented")
+        if (msj.contains("ERROR -")) println() else println(msj)
+        if (pausa) pausar()
     }
 
     override fun pedirInfo(msj: String): String {
-        TODO("Not yet implemented")
+        if (msj.isNotEmpty()){
+            println(msj)
+            return readln().trim()
+        }else{
+            return ""
+        }
     }
 
     override fun pedirInfo(msj: String, error: String, debeCumplir: (String) -> Boolean): String {
-        TODO("Not yet implemented")
+        println(msj)
+        val respuestaUsuario = readln().trim()
+        require(debeCumplir(respuestaUsuario)) {mostrarError("error")}
+        return respuestaUsuario
     }
 
     override fun pedirDouble(
