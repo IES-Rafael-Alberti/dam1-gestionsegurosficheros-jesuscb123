@@ -33,11 +33,20 @@ class Consola : IEntradaSalida {
         errorConv: String,
         debeCumplir: (Double) -> Boolean
     ): Double {
+        println(prompt)
+        val respuestaUsuario = readln().trim().toDoubleOrNull()
+        require(respuestaUsuario != null){errorConv}
+        require(debeCumplir(respuestaUsuario)){error}
+        return respuestaUsuario
 
     }
 
     override fun pedirEntero(prompt: String, error: String, errorConv: String, debeCumplir: (Int) -> Boolean): Int {
-
+        println(prompt)
+        val respuestaUsuario = readln().trim().toIntOrNull()
+        require(respuestaUsuario != null){errorConv}
+        require(debeCumplir(respuestaUsuario)){error}
+        return respuestaUsuario
     }
 
     override fun pedirInfoOculta(prompt: String): String {
@@ -57,6 +66,7 @@ class Consola : IEntradaSalida {
     override fun preguntar(mensaje: String): Boolean {
 
     }
+
 
 
 }
