@@ -1,6 +1,8 @@
 package prog2425.dam1.seguros.model
 
-import java.util.function.DoubleBinaryOperator
+import java.time.LocalDate
+import java.time.Year
+
 
 class SeguroHogar : Seguro {
     private val metrosCuadrados: Int
@@ -55,7 +57,13 @@ class SeguroHogar : Seguro {
     }
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
-        return obtenerImporte() + (obtenerImporte() * interes) // implementar el método de la guía.
+        val anioActual = LocalDate.now().year
+        val antiguedad = (anioActual - anioConstruccion).toDouble()
+
+        val interesAdicional = (antiguedad / 5).toInt() * 0.0002
+        val interesTotal = interes + interesAdicional
+
+        return valorContenido * (1 + interesTotal)
     }
 
     override fun toString(): String {
