@@ -22,7 +22,6 @@ class Consola : IEntradaSalida {
     }
 
     override fun pedirInfo(msj: String, error: String, debeCumplir: (String) -> Boolean): String {
-
         val respuestaUsuario = pedirInfo(msj)
         require(debeCumplir(respuestaUsuario)) {mostrarError("error")}
         return respuestaUsuario
@@ -50,11 +49,13 @@ class Consola : IEntradaSalida {
     }
 
     override fun limpiarPantalla(numSaltos: Int) {
-        TODO("Not yet implemented")
+        for (i in 1..numSaltos) {
+            println()
+        }
     }
 
     override fun preguntar(mensaje: String): Boolean {
-        TODO("Not yet implemented")
+
     }
 
 
