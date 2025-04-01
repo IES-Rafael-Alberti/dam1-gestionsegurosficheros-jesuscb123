@@ -40,7 +40,7 @@ class GestorSeguros(val repoSeguros: IRepoSeguros) : IServSeguros {
             cobertura,
             asistenciaCarretera,
             numPartes)
-        if (repoSeguros.agregar(seguroAutoCreado)) return true else return false
+        return if (repoSeguros.agregar(seguroAutoCreado)) true else false
     }
 
     override fun contratarSeguroVida(
@@ -51,7 +51,7 @@ class GestorSeguros(val repoSeguros: IRepoSeguros) : IServSeguros {
         indemnizacion: Double
     ): Boolean {
         val seguroVidaCreado = SeguroVida(dniTitular, importe, fechaNacimiento, nivelRiesgo, indemnizacion)
-        if (repoSeguros.agregar(seguroVidaCreado)) return true else return false
+        return if (repoSeguros.agregar(seguroVidaCreado)) true else false
     }
 
     override fun eliminarSeguro(numPoliza: Int): Boolean {
