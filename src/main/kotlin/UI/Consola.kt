@@ -1,8 +1,13 @@
 package prog2425.dam1.seguros.UI
 
+import jdk.internal.org.jline.reader.EndOfFileException
+import jdk.internal.org.jline.reader.LineReaderBuilder
+import jdk.internal.org.jline.reader.UserInterruptException
+import jdk.internal.org.jline.terminal.TerminalBuilder
+
 class Consola : IEntradaSalida {
     override fun mostrar(msj: String, salto: Boolean, pausa: Boolean) {
-        println(msj)
+        print(msj)
         if (salto) println()
         if (pausa) pausar()
     }
@@ -15,15 +20,14 @@ class Consola : IEntradaSalida {
     override fun pedirInfo(msj: String): String {
         if (msj.isNotEmpty()){
             println(msj)
-            return readln().trim()
-        }else{
-            return ""
+
         }
+        return readln().trim()
     }
 
     override fun pedirInfo(msj: String, error: String, debeCumplir: (String) -> Boolean): String {
         val respuestaUsuario = pedirInfo(msj)
-        require(debeCumplir(respuestaUsuario)) {mostrarError("error")}
+        require(debeCumplir(respuestaUsuario)) { error }
         return respuestaUsuario
     }
 
@@ -34,7 +38,7 @@ class Consola : IEntradaSalida {
         debeCumplir: (Double) -> Boolean
     ): Double {
         println(prompt)
-        val respuestaUsuario = readln().trim().toDoubleOrNull()
+        val respuestaUsuario = pedirInfo(prompt).replace(",",".").toDoubleOrNull()
         require(respuestaUsuario != null){errorConv}
         require(debeCumplir(respuestaUsuario)){error}
         return respuestaUsuario
@@ -43,30 +47,64 @@ class Consola : IEntradaSalida {
 
     override fun pedirEntero(prompt: String, error: String, errorConv: String, debeCumplir: (Int) -> Boolean): Int {
         println(prompt)
-        val respuestaUsuario = readln().trim().toIntOrNull()
+        val respuestaUsuario = pedirInfo(prompt).toIntOrNull()
         require(respuestaUsuario != null){errorConv}
         require(debeCumplir(respuestaUsuario)){error}
         return respuestaUsuario
     }
 
     override fun pedirInfoOculta(prompt: String): String {
-        TODO("Not yet implemented")
+        return try {
+            val terminal = TerminalBuilder.builder()
+                .dumb(true) // Para entornos no interactivos como IDEs
+                .build()
+
+            val reader = LineReaderBuilder.builder()
+                .terminal(terminal)
+                .build()
+
+            reader.readLine(prompt, '*') // Oculta la contraseña con '*'
+        } catch (e: UserInterruptException) {
+            mostrarError("Entrada cancelada por el usuario (Ctrl + C).", pausa = false)
+            ""
+        } catch (e: EndOfFileException) {
+            mostrarError("Se alcanzó el final del archivo (EOF ó Ctrl+D).", pausa = false)
+            ""
+        } catch (e: Exception) {
+            mostrarError("Problema al leer la contraseña: ${e.message}", pausa = false)
+            ""
+        }
     }
 
     override fun pausar(msj: String) {
-        TODO("Not yet implemented")
+        println(msj)
     }
 
     override fun limpiarPantalla(numSaltos: Int) {
-        for (i in 1..numSaltos) {
-            println()
+        if (System.console() != null) {
+            mostrar("\u001b[H\u001b[2J", false)
+            System.out.flush()
+        } else {
+            repeat(numSaltos) {
+                mostrar("")
+            }
         }
     }
 
     override fun preguntar(mensaje: String): Boolean {
+        val siONo = arrayOf("s","n")
+        var respuestaUsuario = ""
+        var respuestaCorrecta = false
+        do {
+            respuestaUsuario = readln().trim()
+            if (respuestaUsuario !in siONo){
 
+            }
+        }while()
     }
 
+    private fun verificarRespuesta(){
 
+    }
 
 }

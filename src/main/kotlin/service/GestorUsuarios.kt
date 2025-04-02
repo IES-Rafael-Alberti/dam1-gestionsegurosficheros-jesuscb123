@@ -5,26 +5,20 @@ import prog2425.dam1.seguros.model.Perfil
 import prog2425.dam1.seguros.model.Usuario
 import prog2425.dam1.seguros.utils.IUtilSeguridad
 
-class GestorUsuarios(val repoUsuarios: IRepoUsuarios, val seguridad: IUtilSeguridad) : IServUsuarios {
+class GestorUsuarios(private val repoUsuarios: IRepoUsuarios, private val seguridad: IUtilSeguridad) : IServUsuarios {
+
     override fun iniciarSesion(nombre: String, clave: String): Perfil? {
        val usuarioExiste = buscarUsuario(nombre)
-        if (usuarioExiste != null && usuarioExiste.clave == clave) return usuarioExiste.perfil else return null
+        if (usuarioExiste != null && seguridad.verificarClave(clave, usuarioExiste.clave)) return usuarioExiste.perfil else return null
     }
 
     override fun agregarUsuario(nombre: String, clave: String, perfil: Perfil): Boolean {
-        if (buscarUsuario(nombre) == null){
             val claveEncriptada = seguridad.encriptarClave(clave)
             if (repoUsuarios.agregar(Usuario(nombre,claveEncriptada,perfil))) return true else return false
-        }
-        return false
     }
 
     override fun eliminarUsuario(nombre: String): Boolean {
-        if (buscarUsuario(nombre) != null){
-            if (repoUsuarios.eliminar(nombre)) return true else return false
-        }else{
-            return false
-        }
+        return repoUsuarios.eliminar(nombre)
     }
 
     override fun cambiarClave(usuario: Usuario, nuevaClave: String): Boolean {
@@ -42,6 +36,6 @@ class GestorUsuarios(val repoUsuarios: IRepoUsuarios, val seguridad: IUtilSeguri
     }
 
     override fun consultarPorPerfil(perfil: Perfil): List<Usuario> {
-        return consultarTodos().filter { it.perfil == perfil }
+        return repoUsuarios.obtener(perfil)
     }
 }

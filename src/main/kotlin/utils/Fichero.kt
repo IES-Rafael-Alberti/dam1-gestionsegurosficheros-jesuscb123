@@ -4,12 +4,21 @@ import prog2425.dam1.seguros.UI.IEntradaSalida
 import prog2425.dam1.seguros.model.IExportable
 import prog2425.dam1.seguros.model.Seguro
 import java.io.File
+import java.io.IOException
 import java.lang.IllegalArgumentException
 
 class Fichero(val consola: IEntradaSalida) : IUtilFicheros {
     override fun leerArchivo(ruta: String): List<String> {
-        val
-        return File(ruta).readLines()
+        val archivo = File(ruta)
+        try{
+            if (!archivo.exists()){
+                consola.mostrarError("No fue posible leer el archivo.")
+                return emptyList()
+            }
+            archivo.readLines()
+        }catch (e: IOException){
+            consola.mostrarError("Se produjo  un error al leer el archivo.")
+        }
     }
 
     override fun leerSeguros(ruta: String, mapaSeguros: Map<String, (List<String>) -> Seguro>): List<Seguro> {
@@ -20,7 +29,7 @@ class Fichero(val consola: IEntradaSalida) : IUtilFicheros {
         try {
             File(ruta).appendText(linea)
             return true
-        }catch (e: Exception){
+        }catch (e: IOException){
             consola.mostrarError("ERROR - No se puede agregar la línea")
         }
         return false
@@ -51,5 +60,6 @@ class Fichero(val consola: IEntradaSalida) : IUtilFicheros {
             return false
         }
     }
+
 
 }
