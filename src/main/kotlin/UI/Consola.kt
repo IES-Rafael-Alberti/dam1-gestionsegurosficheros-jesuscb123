@@ -19,8 +19,7 @@ class Consola : IEntradaSalida {
 
     override fun pedirInfo(msj: String): String {
         if (msj.isNotEmpty()){
-            println(msj)
-
+            println(msj.trim())
         }
         return readln().trim()
     }
@@ -39,8 +38,8 @@ class Consola : IEntradaSalida {
     ): Double {
         println(prompt)
         val respuestaUsuario = pedirInfo(prompt).replace(",",".").toDoubleOrNull()
-        require(respuestaUsuario != null){errorConv}
-        require(debeCumplir(respuestaUsuario)){error}
+        require(respuestaUsuario != null){ errorConv }
+        require(debeCumplir(respuestaUsuario)){ error }
         return respuestaUsuario
 
     }
@@ -93,18 +92,22 @@ class Consola : IEntradaSalida {
 
     override fun preguntar(mensaje: String): Boolean {
         val siONo = arrayOf("s","n")
-        var respuestaUsuario = ""
+        var respuestaFinal = false
         var respuestaCorrecta = false
         do {
-            respuestaUsuario = readln().trim()
-            if (respuestaUsuario !in siONo){
-
+            var respuestaUsuario = readln().trim()
+            if (respuestaUsuario in siONo){
+                when (respuestaUsuario){
+                    "s" -> respuestaFinal = true
+                    else -> respuestaFinal = false
+                }
+            }else{
+                respuestaCorrecta = false
             }
-        }while()
+        }while(!respuestaCorrecta)
+
+        return respuestaFinal
     }
 
-    private fun verificarRespuesta(){
-
-    }
 
 }

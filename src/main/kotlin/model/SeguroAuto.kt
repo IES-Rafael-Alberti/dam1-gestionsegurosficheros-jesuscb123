@@ -21,7 +21,7 @@ class SeguroAuto : Seguro{
             val cobertura = Cobertura.getCobertura(datos[6])
             val asistenciaCarretera = datos[7].toBoolean()
             val numPartes = datos[8].toInt()
-            return SeguroAuto(dniTitular,importe,descripcion,combustible,tipoAuto,cobertura,asistenciaCarretera,numPartes)
+            return SeguroAuto(numPoliza, dniTitular, importe, descripcion, combustible, tipoAuto, cobertura, asistenciaCarretera, numPartes)
         }
 
     }

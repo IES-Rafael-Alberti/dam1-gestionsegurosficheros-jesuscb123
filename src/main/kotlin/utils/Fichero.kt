@@ -15,14 +15,14 @@ class Fichero(val consola: IEntradaSalida) : IUtilFicheros {
                 consola.mostrarError("No fue posible leer el archivo.")
                 return emptyList()
             }
-            archivo.readLines()
         }catch (e: IOException){
             consola.mostrarError("Se produjo  un error al leer el archivo.")
         }
+        return archivo.readLines()
     }
 
     override fun leerSeguros(ruta: String, mapaSeguros: Map<String, (List<String>) -> Seguro>): List<Seguro> {
-
+    TODO()
     }
 
     override fun agregarLinea(ruta: String, linea: String): Boolean {

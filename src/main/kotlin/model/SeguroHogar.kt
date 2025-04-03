@@ -12,17 +12,18 @@ class SeguroHogar : Seguro {
 
 
     companion object{
-     private var numPolizaHogar: Int = 100000
+        var numPolizaHogar: Int = 100000
         const val PORCENTAJE_INCREMENTO_ANIOS = 0.02
         const val CICLO_ANIOS_INCREMENTO = 5
         fun crearSeguro(datos: List<String>): SeguroHogar{
-            val dniTitular = datos[0]
-            val importe = datos[1].toDouble()
-            val metrosCuadrados = datos[2].toInt()
-            val valorContenido = datos[3].toDouble()
-            val direccion = datos[4].toString()
-            val anioConstruccion = datos[5].toInt()
-            return SeguroHogar(dniTitular, importe, metrosCuadrados, valorContenido,direccion, anioConstruccion)
+            val numPoliza = datos[0].toInt()
+            val dniTitular = datos[1]
+            val importe = datos[2].toDouble()
+            val metrosCuadrados = datos[3].toInt()
+            val valorContenido = datos[4].toDouble()
+            val direccion = datos[5].toString()
+            val anioConstruccion = datos[6].toInt()
+            return SeguroHogar(numPoliza, dniTitular, importe, metrosCuadrados, valorContenido,direccion, anioConstruccion)
         }
     }
 

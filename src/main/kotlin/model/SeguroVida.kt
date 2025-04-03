@@ -8,14 +8,15 @@ class SeguroVida : Seguro {
     private var indemnizacion: Double
 
     companion object{
-        var numPolizasVida = 800000
+        var numPolizaVida = 800000
         fun crearSeguro(datos: List<String>): SeguroVida{
-            val dniTitular = datos[0]
-            val importe = datos[1].toDouble()
-            val fechaNac = LocalDate.parse(datos[2])
-            val nivelRiesgo = NivelRiesgo.getRiesgo(datos[3])
-            val indemnizacion = datos[4].toDouble()
-            return SeguroVida(dniTitular, importe, fechaNac, nivelRiesgo, indemnizacion)
+            val numPoliza = datos[0].toInt()
+            val dniTitular = datos[1]
+            val importe = datos[2].toDouble()
+            val fechaNac = LocalDate.parse(datos[3])
+            val nivelRiesgo = NivelRiesgo.getRiesgo(datos[4])
+            val indemnizacion = datos[5].toDouble()
+            return SeguroVida(numPoliza,dniTitular, importe, fechaNac, nivelRiesgo, indemnizacion)
         }
     }
 
@@ -24,7 +25,7 @@ class SeguroVida : Seguro {
                 fechaNac: LocalDate,
                 nivelRiesgo: NivelRiesgo,
                 indemnizacion: Double) : super(
-                    numPolizasVida++, dniTitular, importe){
+                    numPolizaVida++, dniTitular, importe){
                     this.fechaNac = fechaNac
                     this.nivelRiesgo = nivelRiesgo
                     this.indemnizacion = indemnizacion
@@ -47,11 +48,11 @@ class SeguroVida : Seguro {
     }
 
     override fun serializar(separador: String): String {
-        return "$numPolizasVida$separador${obtenerDNI()}$separador$importe$separador${tipoSeguro()}"
+        return "$numPolizaVida$separador${obtenerDNI()}$separador$importe$separador${tipoSeguro()}"
     }
 
     override fun toString(): String {
-        return "SeguroVida(numPoliza=$numPolizasVida, dniTitular=${obtenerDNI()}, importe=${obtenerImporte()}, fechaNac=$fechaNac, nivelRiesgo=$nivelRiesgo, indemnización=$indemnizacion)"
+        return "${tipoSeguro()}(numPoliza=$numPolizaVida, dniTitular=${obtenerDNI()}, importe=${obtenerImporte()}, fechaNac=$fechaNac, nivelRiesgo=$nivelRiesgo, indemnización=$indemnizacion)"
     }
 }
 
