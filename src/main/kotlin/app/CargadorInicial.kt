@@ -22,14 +22,17 @@ class CargadorInicial(val consola: IEntradaSalida, val repoFichUsuarios: ICargar
     fun cargarUsuarios(){
         try {
             repoFichUsuarios.cargarUsuarios()
+        }catch (e: NumberFormatException){
+            consola.mostrarError("Error al convertir los datos.")
         }catch (e: Exception){
-            consola.mostrarError("ERROR - No se pueden cargar usuarios.")
+            consola.mostrarError("No se pueden cargar los usuarios.")
         }
     }
 
+
     fun cargarSeguros(){
         try {
-            repoFichSeguros.cargarSeguros()
+            repoFichSeguros.cargarSeguros(ConfiguracionesApp.mapaCrearSeguros)
         }catch (e: Exception){}
     }
 

@@ -6,7 +6,7 @@ import prog2425.dam1.seguros.utils.IUtilFicheros
 
 class RepoSegurosFich(val fich: IUtilFicheros, val rutaArchivo: String, ) : RepoSegurosMem(), ICargarSegurosIniciales {
     override fun cargarSeguros(mapa: Map<String, (List<String>) -> Seguro>): Boolean {
-        fich.leerSeguros()
+        TODO()
     }
 
     override fun agregar(seguro: Seguro): Boolean {
