@@ -37,12 +37,14 @@ class ControlAcceso(val rutaArchivo: String, val gestorUsuarios: IServUsuarios, 
      *
      * @return Un par (nombreUsuario, perfil) si el acceso fue exitoso, o `null` si el usuario cancela el acceso.
      */
-    fun autenticar() {
+    fun autenticar(): Pair<String?, Perfil?> {
         if (verificarFicheroUsuarios()){
             val (nombre, perfil) = iniciarSesion()
-
-
+            if (nombre != null && perfil != null) {
+                return Pair(nombre, perfil)
+            }
         }
+        return Pair(null, null)
     }
 
     fun verificarFicheroUsuarios(): Boolean {
