@@ -2,7 +2,6 @@ package prog2425.dam1.seguros.app
 
 import prog2425.dam1.seguros.UI.IEntradaSalida
 import prog2425.dam1.seguros.model.Perfil
-import prog2425.dam1.seguros.model.Usuario
 import prog2425.dam1.seguros.service.IServUsuarios
 import prog2425.dam1.seguros.utils.IUtilFicheros
 
