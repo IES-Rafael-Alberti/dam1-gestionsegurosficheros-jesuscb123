@@ -10,8 +10,7 @@ import prog2425.dam1.seguros.service.IServSeguros
 import prog2425.dam1.seguros.service.IServUsuarios
 import prog2425.dam1.seguros.utils.IUtilFecha
 import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+
 
 /**
  * Clase encargada de gestionar el flujo de menús y opciones de la aplicación,
@@ -153,16 +152,15 @@ class GestorMenu(val nombreUsuario: String,
      * Mostrar la lista de usuarios (Todos o filstrados por un perfil)
      */
     fun consultarUsuarios() {
-        ui.mostrar("----USUARIOS----")
-        ui.mostrar("--USUARIOS: ADMIN--")
-        consultarUsuariosPerfil("admin")
-        ui.mostrar("--USUARIOS: GESTIÓN--")
-        consultarUsuariosPerfil("gestion")
-        ui.mostrar("--USUARIOS: CONSULTA--")
-        consultarUsuariosPerfil("consulta")
-    }
+        val respuestaUsuario = ui.preguntar("Si desea ver todos escriba 's' o 'n' para ver por perfil")
+        when (respuestaUsuario) {
+            true -> gestorSeguros.consultarTodos()
+            else -> consultarUsuariosPerfil()
+            }
+        }
 
-    private fun consultarUsuariosPerfil(perfil: String){
+    private fun consultarUsuariosPerfil(){
+        val perfil = ui.pedirInfo("Introduce que tipo de perfil quieres ver, por defecto: Consulta")
         ui.mostrarLista(gestorUsuarios.consultarPorPerfil(Perfil.getPerfil(perfil)))
     }
 
@@ -326,22 +324,26 @@ class GestorMenu(val nombreUsuario: String,
 
     /** Muestra todos los seguros existentes */
     fun consultarSeguros() {
-        TODO("Implementar este método")
+        ui.mostrar("--TODOS LOS SEGUROS--")
+        ui.mostrarLista(gestorSeguros.consultarTodos())
     }
 
     /** Muestra todos los seguros de tipo hogar */
     fun consultarSegurosHogar() {
-        TODO("Implementar este método")
+        ui.mostrar("--SEGUROS DE HOGAR--")
+        ui.mostrarLista(gestorSeguros.consultarPorTipo("seguroHogar"))
     }
 
     /** Muestra todos los seguros de tipo auto */
     fun consultarSegurosAuto() {
-        TODO("Implementar este método")
+        ui.mostrar("--SEGUROS DE AUTO--")
+        ui.mostrarLista(gestorSeguros.consultarPorTipo("seguroAuto"))
     }
 
     /** Muestra todos los seguros de tipo vida */
     fun consultarSegurosVida() {
-        TODO("Implementar este método")
+        ui.mostrar("--SEGUROS DE VIDA--")
+        ui.mostrarLista(gestorSeguros.consultarPorTipo("seguroVida"))
     }
 
 
@@ -352,9 +354,6 @@ class GestorMenu(val nombreUsuario: String,
         }
 
     }
-
-    private fun formatearFecha
-
 
 
 }

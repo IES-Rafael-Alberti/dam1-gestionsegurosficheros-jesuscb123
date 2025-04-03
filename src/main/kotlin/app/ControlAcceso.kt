@@ -41,6 +41,7 @@ class ControlAcceso(val rutaArchivo: String, val gestorUsuarios: IServUsuarios, 
         if (verificarFicheroUsuarios()){
             val (nombre, perfil) = iniciarSesion()
 
+
         }
     }
 
