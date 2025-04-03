@@ -102,6 +102,7 @@ class Consola : IEntradaSalida {
                     else -> respuestaFinal = false
                 }
             }else{
+                mostrarError("ERROR - Introduce s o n.")
                 respuestaCorrecta = false
             }
         }while(!respuestaCorrecta)

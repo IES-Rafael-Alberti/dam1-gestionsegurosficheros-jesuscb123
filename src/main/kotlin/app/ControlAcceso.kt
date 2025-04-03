@@ -39,17 +39,23 @@ class ControlAcceso(val rutaArchivo: String, val gestorUsuarios: IServUsuarios, 
      * @return Un par (nombreUsuario, perfil) si el acceso fue exitoso, o `null` si el usuario cancela el acceso.
      */
     fun autenticar() {
+        if (verificarFicheroUsuarios()){
+            val (nombre, perfil) = solicitarCredenciales()
 
+        }
     }
 
-    fun verificarFicheroUsuarios(){
-        if (ficheros.existeFichero(rutaArchivo) || ficheros.leerArchivo(rutaArchivo).isEmpty()){
+    fun verificarFicheroUsuarios(): Boolean {
+        if (!ficheros.existeFichero(rutaArchivo) || ficheros.leerArchivo(rutaArchivo).isEmpty()){
             consola.mostrar("El fichero está vacío, no hay usuarios existentes.")
             if (consola.preguntar("¿Desea crear un usuario nuevo ADMIN?")){
                 crearUsuario()
+                return true
             }else{
-
+                return false
             }
+        }else{
+            return true
         }
     }
 
@@ -67,5 +73,30 @@ class ControlAcceso(val rutaArchivo: String, val gestorUsuarios: IServUsuarios, 
             }catch(e:Exception){}
         }while (!usuarioCorrecto)
         return usuarioCorrecto
+    }
+
+    private fun solicitarCredenciales(): Pair<String?, Perfil?>{
+        var crendecialCorrecta = false
+        var nombre: String
+        var clave: String
+        var perfil: Perfil?
+        do{
+            try{
+                nombre = consola.pedirInfo("Introduce el nombre de usuario")
+                clave = consola.pedirInfo("Introduce la clave")
+                perfil = gestorUsuarios.iniciarSesion(nombre,clave)
+                if (perfil == null){
+                    throw IllegalArgumentException("ERROR - La contraseña no es correcta o el usuario no existe.")
+                }else{
+                    crendecialCorrecta = true
+                    return Pair(nombre, perfil)
+                }
+            }catch(e:IllegalArgumentException){
+                consola.mostrarError("$e")
+            }catch (e:Exception){
+                consola.mostrarError("$e")
+            }
+        }while (!crendecialCorrecta)
+        return Pair(null, null)
     }
 }
