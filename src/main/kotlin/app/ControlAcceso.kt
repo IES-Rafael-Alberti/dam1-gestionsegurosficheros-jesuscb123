@@ -39,7 +39,7 @@ class ControlAcceso(val rutaArchivo: String, val gestorUsuarios: IServUsuarios, 
      */
     fun autenticar() {
         if (verificarFicheroUsuarios()){
-            val (nombre, perfil) = solicitarCredenciales()
+            val (nombre, perfil) = iniciarSesion()
 
         }
     }
@@ -78,20 +78,21 @@ class ControlAcceso(val rutaArchivo: String, val gestorUsuarios: IServUsuarios, 
         return usuarioCorrecto
     }
 
-    private fun solicitarCredenciales(): Pair<String?, Perfil?>{
-        var crendecialCorrecta = false
-        var nombre: String
+    private fun iniciarSesion(): Pair<String?, Perfil?>{
+        var usuarioSalir = false
+        var nombre: String?
         var clave: String
         var perfil: Perfil?
         do{
             try{
-                nombre = consola.pedirInfo("Introduce el nombre de usuario")
+                nombre = consola.pedirInfo("Introduce el nombre de usuario o salir si no desea continuar.")
+                if ( nombre == "salir" ) usuarioSalir = true
                 clave = consola.pedirInfo("Introduce la clave")
                 perfil = gestorUsuarios.iniciarSesion(nombre,clave)
                 if (perfil == null){
                     throw IllegalArgumentException("ERROR - La contraseña no es correcta o el usuario no existe.")
                 }else{
-                    crendecialCorrecta = true
+                    usuarioSalir = true
                     return Pair(nombre, perfil)
                 }
             }catch(e:IllegalArgumentException){
@@ -99,7 +100,7 @@ class ControlAcceso(val rutaArchivo: String, val gestorUsuarios: IServUsuarios, 
             }catch (e:Exception){
                 consola.mostrarError("$e")
             }
-        }while (!crendecialCorrecta)
+        }while (!usuarioSalir)
         return Pair(null, null)
     }
 }
