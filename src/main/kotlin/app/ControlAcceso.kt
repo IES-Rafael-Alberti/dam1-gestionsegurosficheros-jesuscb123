@@ -65,11 +65,15 @@ class ControlAcceso(val rutaArchivo: String, val gestorUsuarios: IServUsuarios, 
         do{
             try{
                 nombreUsuario = consola.pedirInfo("Introduce un nombre de usuario")
-                clave = consola.pedirInfo("Introduce una clave")
+                clave = consola.pedirInfo("Introduce una clave", "La clave debe tener mínimo 5 caracteres."){
+                    it.length >= 5
+                }
                 if (gestorUsuarios.agregarUsuario(nombreUsuario,clave, Perfil.ADMIN)){
                     usuarioCorrecto = true
                 }
-            }catch(e:Exception){}
+            }catch(e:Exception){
+                consola.mostrarError("$e")
+            }
         }while (!usuarioCorrecto)
         return usuarioCorrecto
     }

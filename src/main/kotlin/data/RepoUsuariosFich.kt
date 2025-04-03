@@ -7,7 +7,7 @@ import prog2425.dam1.seguros.utils.IUtilFicheros
 class RepoUsuariosFich(val rutaArchivo: String, val fich: IUtilFicheros) : RepoUsuariosMem(), ICargarUsuariosIniciales {
 
     override fun agregar(usuario: Usuario): Boolean {
-        if (fich.escribirArchivo(rutaArchivo, listaUsuarios.filter { it != usuario })) {
+        if (fich.agregarLinea(rutaArchivo, usuario.serializar())) {
             return super.agregar(usuario)
         }
         return false
@@ -40,7 +40,6 @@ class RepoUsuariosFich(val rutaArchivo: String, val fich: IUtilFicheros) : RepoU
 
     override fun cargarUsuarios(): Boolean {
         val lineas = fich.leerArchivo(rutaArchivo)
-
         if(lineas.isNotEmpty()){
             listaUsuarios.clear()
             for (linea in lineas){
