@@ -13,7 +13,7 @@ class Consola : IEntradaSalida {
     }
 
     override fun mostrarError(msj: String, pausa: Boolean) {
-        if (msj.startsWith("ERROR -")) println() else println(msj)
+        if (msj.startsWith("ERROR -")) println(msj) else println("ERROR - $msj")
         if (pausa) pausar()
     }
 
@@ -108,6 +108,12 @@ class Consola : IEntradaSalida {
         }while(!respuestaCorrecta)
 
         return respuestaFinal
+    }
+
+    override fun <T> mostrarLista(lista: List<T>){
+         lista.forEachIndexed { index, opcion ->
+             mostrar("${index + 1}. $opcion\n")
+         }
     }
 
 

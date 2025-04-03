@@ -76,12 +76,42 @@ class GestorMenu(val nombreUsuario: String,
 
     /** Crea un nuevo usuario solicitando los datos necesarios al usuario */
     fun nuevoUsuario() {
-        ui.
+        var usuarioCorrecto = false
+        var nombreUsuario: String
+        var clave: String
+        do{
+            try{
+                nombreUsuario = ui.pedirInfo("Introduce un nombre de usuario")
+                clave = ui.pedirInfo("Introduce una clave", "La clave debe tener mínimo 5 caracteres."){
+                    it.length >= 5
+                }
+                if (gestorUsuarios.agregarUsuario(nombreUsuario,clave, Perfil.ADMIN)){
+                    usuarioCorrecto = true
+                }
+            }catch(e:Exception){
+                ui.mostrarError("$e")
+            }
+        }while (!usuarioCorrecto)
     }
 
     /** Elimina un usuario si existe */
     fun eliminarUsuario() {
-        TODO("Implementar este método")
+       var usuarioEliminado = false
+        do{
+            try{
+                ui.mostrar("----USUARIOS----")
+                ui.mostrarLista(gestorUsuarios.consultarTodos())
+                var nombre = ui.pedirInfo("Introduce el nombre de usuario que quieres eliminar o salir.", "ERROR - El nombre no puede estar vacío."){
+                    it != ""
+                }
+                require (gestorUsuarios.buscarUsuario(nombre) != null)
+                require (gestorUsuarios.buscarUsuario(nombre) != null) {"El usuario no se encuentra en la base de datos."}
+                gestorUsuarios.eliminarUsuario(nombre)
+                usuarioEliminado = true
+            }catch (e: IllegalArgumentException) {
+                ui.mostrarError(e.toString())
+            }
+        }while (!usuarioEliminado)
     }
 
     /** Cambia la contraseña del usuario actual */
@@ -153,5 +183,6 @@ class GestorMenu(val nombreUsuario: String,
     fun consultarSegurosVida() {
         TODO("Implementar este método")
     }
+
 
 }
