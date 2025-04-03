@@ -33,10 +33,6 @@ class RepoUsuariosFich(val rutaArchivo: String, val fich: IUtilFicheros) : RepoU
         return fich.escribirArchivo(rutaArchivo,listaUsuarios)
     }
 
-    fun actualizarFichero() {
-        TODO()
-    }
-
 
     override fun cargarUsuarios(): Boolean {
         val lineas = fich.leerArchivo(rutaArchivo)

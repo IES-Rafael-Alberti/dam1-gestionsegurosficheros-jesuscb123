@@ -21,9 +21,7 @@ class Fichero(val consola: IEntradaSalida) : IUtilFicheros {
         return archivo.readLines()
     }
 
-    override fun leerSeguros(ruta: String, mapaSeguros: Map<String, (List<String>) -> Seguro>): List<Seguro> {
-    TODO()
-    }
+
 
     override fun agregarLinea(ruta: String, linea: String): Boolean {
         try {

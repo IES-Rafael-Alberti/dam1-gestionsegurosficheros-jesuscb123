@@ -7,7 +7,7 @@ import prog2425.dam1.seguros.model.SeguroVida
 
 class IRepoSegurosFich : RepoSegurosMem(), ICargarSegurosIniciales {
     override fun cargarSeguros(mapa: Map<String, (List<String>) -> Seguro>): Boolean {
-        TODO("Not yet implemented")
+
     }
 
     private fun actualizarContadores(seguros: List<Seguro>) {
