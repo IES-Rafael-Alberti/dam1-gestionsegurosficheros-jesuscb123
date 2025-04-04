@@ -6,8 +6,8 @@ enum class Perfil {
     companion object {
         fun getPerfil(valor: String): Perfil {
             when (valor) {
-                "admin" -> return ADMIN
-                "gestion" -> return GESTION
+                "ADMIN" -> return ADMIN
+                "GESTION" -> return GESTION
                 else -> return CONSULTA
             }
         }

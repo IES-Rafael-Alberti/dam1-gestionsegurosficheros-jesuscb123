@@ -25,7 +25,7 @@ class Fichero(val consola: IEntradaSalida) : IUtilFicheros {
 
     override fun agregarLinea(ruta: String, linea: String): Boolean {
         try {
-            File(ruta).appendText(linea)
+            File(ruta).appendText("$linea\n")
             return true
         }catch (e: IOException){
             consola.mostrarError("ERROR - No se puede agregar la línea")
