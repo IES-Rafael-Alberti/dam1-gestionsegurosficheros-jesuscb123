@@ -8,6 +8,7 @@ import prog2425.dam1.seguros.model.TipoAuto
 import prog2425.dam1.seguros.service.IServSeguros
 
 import prog2425.dam1.seguros.service.IServUsuarios
+import prog2425.dam1.seguros.utils.Fecha
 import prog2425.dam1.seguros.utils.IUtilFecha
 import java.time.LocalDate
 
@@ -27,9 +28,8 @@ class GestorMenu(val nombreUsuario: String,
                  val ui: IEntradaSalida,
                  val gestorUsuarios: IServUsuarios,
                  val gestorSeguros: IServSeguros,
-                 val fecha: IUtilFecha
 ){
-
+    val fecha: IUtilFecha = Fecha
     /**
      * Inicia un menú según el índice correspondiente al perfil actual.
      *
