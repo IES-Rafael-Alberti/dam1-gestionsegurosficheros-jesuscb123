@@ -175,7 +175,7 @@ class GestorMenu(val nombreUsuario: String,
         do{
             try {
                 dni = ui.pedirInfo("Introduce un dni","DNI incorrecto, debe tener 8 dígitos y una letra."){
-                    it.length >= 8 && it[7].isLetter()
+                    it.length >= 9 && it[8].isLetter()
                 }
                 dniCorrecto = true
 
