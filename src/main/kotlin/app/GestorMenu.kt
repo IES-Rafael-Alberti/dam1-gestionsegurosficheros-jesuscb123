@@ -96,7 +96,7 @@ class GestorMenu(val nombreUsuario: String,
                 val perfil = ui.pedirInfo("Introduce el perfil del usuario", "El perfil no se encuentra"){
                     it.uppercase() in Perfil.entries.toString().uppercase()
                 }
-                if (gestorUsuarios.agregarUsuario(nombreUsuario,clave, Perfil.getPerfil(perfil))){
+                if (gestorUsuarios.agregarUsuario(nombreUsuario,clave, Perfil.getPerfil(perfil.uppercase()))){
                     usuarioCorrecto = true
                 }
             }catch(e:IllegalArgumentException){
