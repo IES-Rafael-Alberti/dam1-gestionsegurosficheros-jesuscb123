@@ -1,9 +1,9 @@
 package prog2425.dam1.seguros.UI
 
-import jdk.internal.org.jline.reader.EndOfFileException
-import jdk.internal.org.jline.reader.LineReaderBuilder
-import jdk.internal.org.jline.reader.UserInterruptException
-import jdk.internal.org.jline.terminal.TerminalBuilder
+import org.jline.reader.EndOfFileException
+import org.jline.reader.LineReaderBuilder
+import org.jline.reader.UserInterruptException
+import org.jline.terminal.TerminalBuilder
 
 class Consola : IEntradaSalida {
     override fun mostrar(msj: String, salto: Boolean, pausa: Boolean) {
@@ -95,11 +95,18 @@ class Consola : IEntradaSalida {
         var respuestaFinal = false
         var respuestaCorrecta = false
         do {
+            mostrar(mensaje)
             var respuestaUsuario = readln().trim()
             if (respuestaUsuario in siONo){
                 when (respuestaUsuario){
-                    "s" -> respuestaFinal = true
-                    else -> respuestaFinal = false
+                    "s" -> {
+                        respuestaFinal = true
+                        respuestaCorrecta = true
+                    }
+                    else ->{
+                        respuestaFinal = false
+                        respuestaCorrecta = true
+                    }
                 }
             }else{
                 mostrarError("Introduce s o n.")

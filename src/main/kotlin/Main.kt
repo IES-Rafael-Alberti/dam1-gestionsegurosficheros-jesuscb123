@@ -15,7 +15,6 @@ import prog2425.dam1.seguros.utils.Seguridad
 
 
 fun main(){
-    fun main() {
 
         // Crear dos variables con las rutas de los archivos de texto donde se almacenan los usuarios y seguros.
         // Estos ficheros se usarán solo si el programa se ejecuta en modo de almacenamiento persistente.
@@ -87,31 +86,5 @@ fun main(){
 
 
 
-}
 
 
-
-/*
-fun pedirSimulacionFich(consola: Consola): Int{
-    var salir = false
-    var opcionUsuario = 0
-    do{
-        try{
-          opcionUsuario = consola.pedirEntero("""
-                    ¿Cómo desea trabajar?
-                     1. Simulación
-                     2. Ficheros
-            """.trimIndent(), "Introduce un número disponible", "Introduce un número entero"){
-                it in arrayOf(1,2)
-            }
-            salir = true
-
-        }catch (e: IllegalArgumentException){
-            consola.mostrarError(e.toString())
-        }catch (e: Exception){
-            consola.mostrarError(e.toString())
-        }
-    }while (!salir)
-    return opcionUsuario
-}
-*/

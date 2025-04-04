@@ -74,6 +74,7 @@ class ControlAcceso(val rutaArchivo: String, val gestorUsuarios: IServUsuarios, 
                 if (gestorUsuarios.agregarUsuario(nombreUsuario,clave, Perfil.ADMIN)){
                     usuarioCorrecto = true
                 }
+                usuarioCorrecto = true
             }catch(e:Exception){
                 consola.mostrarError("$e")
             }
