@@ -93,7 +93,10 @@ class GestorMenu(val nombreUsuario: String,
                 clave = ui.pedirInfo("Introduce una clave", "La clave debe tener mínimo 5 caracteres."){
                     it.length >= 5
                 }
-                if (gestorUsuarios.agregarUsuario(nombreUsuario,clave, Perfil.ADMIN)){
+                val perfil = ui.pedirInfo("Introduce el perfil del usuario", "El perfil no se encuentra"){
+                    it.uppercase() in Perfil.entries.toString().uppercase()
+                }
+                if (gestorUsuarios.agregarUsuario(nombreUsuario,clave, Perfil.getPerfil(perfil))){
                     usuarioCorrecto = true
                 }
             }catch(e:IllegalArgumentException){
