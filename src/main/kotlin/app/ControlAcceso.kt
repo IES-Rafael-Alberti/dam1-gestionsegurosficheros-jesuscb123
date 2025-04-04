@@ -88,6 +88,7 @@ class ControlAcceso(val rutaArchivo: String, val gestorUsuarios: IServUsuarios, 
         var perfil: Perfil?
         do{
             try{
+                consola.limpiarPantalla()
                 nombre = consola.pedirInfo("Introduce el nombre de usuario o salir si no desea continuar.")
                 if ( nombre == "salir" ) usuarioSalir = true
                 clave = consola.pedirInfo("Introduce la clave")

@@ -44,7 +44,9 @@ class SeguroVida : Seguro {
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
         val edad = LocalDate.now().year - fechaNac.year
-        TODO()
+        val interesResidual = edad * 0.0005 //
+        val interesTotal = interes + interesResidual
+        return importe * (1 + interesTotal)
     }
 
     override fun serializar(separador: String): String {
