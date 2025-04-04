@@ -157,14 +157,14 @@ class GestorMenu(val nombreUsuario: String,
     fun consultarUsuarios() {
         val respuestaUsuario = ui.preguntar("Si desea ver todos escriba 's' o 'n' para ver por perfil")
         when (respuestaUsuario) {
-            true -> gestorSeguros.consultarTodos()
+            true -> ui.mostrarLista(gestorUsuarios.consultarTodos())
             else -> consultarUsuariosPerfil()
             }
         }
 
     private fun consultarUsuariosPerfil(){
         val perfil = ui.pedirInfo("Introduce que tipo de perfil quieres ver, por defecto: Consulta")
-        ui.mostrarLista(gestorUsuarios.consultarPorPerfil(Perfil.getPerfil(perfil)))
+        ui.mostrarLista(gestorUsuarios.consultarPorPerfil(Perfil.getPerfil(perfil.uppercase())))
     }
 
     /**
@@ -251,15 +251,15 @@ class GestorMenu(val nombreUsuario: String,
         do {
             try {
                 ui.limpiarPantalla()
-                var dni = pedirDni()
-                var importe = pedirImporte()
-                var descripcion = ui.pedirInfo("Introduce una descripción del auto")
-                var combustible = ui.pedirInfo("Introduce el tipo de combustible")
-                var tipoAuto = ui.pedirInfo("Introduce el tipo de auto", "El tipo de auto no existe"){
-                    it.lowercase() in TipoAuto.entries.toString()
+                val dni = pedirDni()
+                val importe = pedirImporte()
+                val descripcion = ui.pedirInfo("Introduce una descripción del auto")
+                val combustible = ui.pedirInfo("Introduce el tipo de combustible")
+                val tipoAuto = ui.pedirInfo("Introduce el tipo de auto", "El tipo de auto no existe"){
+                    it.uppercase() in TipoAuto.entries.toString().uppercase()
                 }
                 var cobertura = ui.pedirInfo("Introduce la cobertura", "el tipo de cobertura no existe"){
-                    it.lowercase() in Cobertura.entries.toString()
+                    it.uppercase() in Cobertura.entries.toString().uppercase()
                 }
                 var asistenciaEnCarretera = ui.pedirInfo("Introduce si quieres asistencia en carretera (s,n)","Debes introducir s o n"){
                     val siONo = arrayOf("s","n", "si", "no")
@@ -269,7 +269,7 @@ class GestorMenu(val nombreUsuario: String,
                 var numPartes = ui.pedirEntero("Introduce número de partes", "El número de partes debe ser positivo", "Introduce un número entero"){
                     it > 0
                 }
-                gestorSeguros.contratarSeguroAuto(dni, importe, descripcion, combustible, TipoAuto.getTipoAuto(tipoAuto), Cobertura.getCobertura(cobertura), devolverAsistenciaCarretera(asistenciaEnCarretera), numPartes)
+                gestorSeguros.contratarSeguroAuto(dni, importe, descripcion, combustible, TipoAuto.getTipoAuto(tipoAuto.lowercase()), Cobertura.getCobertura(cobertura.lowercase()), devolverAsistenciaCarretera(asistenciaEnCarretera), numPartes)
                 seguroCorrecto = true
             }catch (e:IllegalArgumentException){
                 ui.mostrarError(e.toString())

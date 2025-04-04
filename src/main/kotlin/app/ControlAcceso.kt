@@ -67,14 +67,14 @@ class ControlAcceso(val rutaArchivo: String, val gestorUsuarios: IServUsuarios, 
         var clave: String
         do{
             try{
-                nombreUsuario = consola.pedirInfo("Introduce un nombre de usuario")
+                nombreUsuario = consola.pedirInfo("Introduce un nombre de usuario o salir.")
+                if ( nombreUsuario.lowercase() == "salir") usuarioCorrecto = true
                 clave = consola.pedirInfo("Introduce una clave", "La clave debe tener mínimo 5 caracteres."){
                     it.length >= 5
                 }
                 if (gestorUsuarios.agregarUsuario(nombreUsuario,clave, Perfil.ADMIN)){
                     usuarioCorrecto = true
                 }
-                usuarioCorrecto = true
             }catch(e:Exception){
                 consola.mostrarError("$e")
             }
@@ -91,7 +91,7 @@ class ControlAcceso(val rutaArchivo: String, val gestorUsuarios: IServUsuarios, 
             try{
                 consola.limpiarPantalla()
                 nombre = consola.pedirInfo("Introduce el nombre de usuario o salir si no desea continuar.")
-                if ( nombre == "salir" ) usuarioSalir = true
+                if ( nombre.lowercase() == "salir" ) usuarioSalir = true
                 clave = consola.pedirInfo("Introduce la clave")
                 perfil = gestorUsuarios.iniciarSesion(nombre,clave)
                 if (perfil == null){

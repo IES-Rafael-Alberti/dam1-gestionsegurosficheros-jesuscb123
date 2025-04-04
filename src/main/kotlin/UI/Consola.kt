@@ -36,7 +36,6 @@ class Consola : IEntradaSalida {
         errorConv: String,
         debeCumplir: (Double) -> Boolean
     ): Double {
-        println(prompt)
         val respuestaUsuario = pedirInfo(prompt).replace(",",".").toDoubleOrNull()
         require(respuestaUsuario != null){ errorConv }
         require(debeCumplir(respuestaUsuario)){ error }
